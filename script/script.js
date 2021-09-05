@@ -44,6 +44,9 @@ function sinus (operand) {
     return result = Math.sin(operand);
 }
 
+function showsHistory (arr) {
+    alert(arr);
+}
 do {
     operator = prompt(`Choose one of operations: +, -, *, /, sin or history`, `+`);
     if (operator === `+`) {
@@ -62,7 +65,7 @@ do {
         alert(`Operation sin finished with result ${sinus(askFirstOperand())}`);
         result = `\nOperation sin finished with result ${result}`;
     } else if (operator === `history`) {
-        alert(resultsArr);
+        showsHistory(resultsArr);
     }
     resultsArr.push(result);
 } while (confirm('Any more calculations?'));
