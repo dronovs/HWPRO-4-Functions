@@ -1,21 +1,9 @@
-function askFirstOperand (operand) {
-    let firstOperand = +prompt('Please enter the first operand');
-    if (isNaN(firstOperand)) {
-        while (isNaN(firstOperand)) {
-            firstOperand = +prompt('Please enter a NUMBER!');
+function askOperand () {
+    let operand = +prompt('Please enter operand');
+        while (isNaN(operand)) {
+            operand = +prompt('Please enter a NUMBER!');
         }
-    }
-    return firstOperand;
-}
-
-function askSecondOperand (operand) {
-    let secondOperand = +prompt('Please enter second operand');
-    if (isNaN(secondOperand)) {
-        while (isNaN(secondOperand)) {
-            secondOperand = +prompt('Please enter a NUMBER!');
-        }
-    }
-    return secondOperand;
+    return operand;
 }
 
 function sums (operand1, operand2) {
@@ -42,27 +30,27 @@ function showsHistory (arr) {
     alert(arr);
 }
 
-let result;
-let resultsArr = [];
-
 function main () {
+    let result;
+    let resultsArr = [];
+
     do {
         let operator = 0;
         operator = prompt(`Choose one of operations: +, -, *, /, sin or history`, `+`);
         if (operator === `+`) {
-            result = `\nOperation sum finished with result ${sums(askFirstOperand(), askSecondOperand())}`;
+            result = `\nOperation sum finished with result ${sums(askOperand(), askOperand())}`;
             alert(result);
         } else if (operator === `-`) {
-            result = `\nOperation diff finished with result ${difference(askFirstOperand(), askSecondOperand())}`;
+            result = `\nOperation diff finished with result ${difference(askOperand(), askOperand())}`;
             alert(result);
         } else if (operator === `*`) {
-            result = `\nOperation mult finished with result ${multiplies(askFirstOperand(), askSecondOperand())}`;
+            result = `\nOperation mult finished with result ${multiplies(askOperand(), askOperand())}`;
             alert(result);
         } else if (operator === `/`) {
-            result = `\nOperation div finished with result ${divides(askFirstOperand(), askSecondOperand())}`;
+            result = `\nOperation div finished with result ${divides(askOperand(), askOperand())}`;
             alert(result);
         } else if (operator === `sin`) {
-            result = `\nOperation sin finished with result ${sinus(askFirstOperand())}`;
+            result = `\nOperation sin finished with result ${sinus(askOperand())}`;
             alert(result);
         } else if (operator === `history`) {
             showsHistory(resultsArr);
